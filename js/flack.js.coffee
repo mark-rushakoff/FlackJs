@@ -1,5 +1,8 @@
 root = exports ? this
 
+stripHtml = (html) ->
+    $("<div></div>").html(html).text()
+
 class Grabber
     constructor: (@id) ->
         @site = "stackoverflow"
@@ -15,9 +18,8 @@ class Grabber
                 site: @site,
                 filter: "!*LJ9JtBkumiy6i6I"
             },
-            context: this,
-            success: (data) ->
-                console.log("data", data)
+            success: (data) =>
+                @answerText = stripHtml(_.pluck(data.items, "body").join(' '))
         })
 
 root.FlackOverstow = {

@@ -28,4 +28,10 @@ describe "FlackOverstow", ->
                 expect(ajaxArg.data.site).toBe("stackoverflow")
                 expect(ajaxArg.data.filter).toBe("!*LJ9JtBkumiy6i6I")
 
-            xdescribe "when the fetch completes"
+            describe "when the fetch completes", ->
+                beforeEach ->
+                    ajaxArgs = $.ajax.mostRecentCall.args[0]
+                    ajaxArgs.success(FlackFixtures.answers)
+
+                it "sets the answerText property", ->
+                    expect(@grabber.answerText).toBeDefined()
