@@ -1,5 +1,8 @@
 root = exports ? this
 
+beforeEach ->
+    spyOn($, "ajax")
+
 describe "FlackOverstow", ->
     describe "Grabber", ->
         beforeEach ->
@@ -14,6 +17,15 @@ describe "FlackOverstow", ->
         it "defaults the sort to activity", ->
             expect(@grabber.sort).toBe("activity")
 
-        it "generates the correct URL", ->
-            # this filter is from the SE API to only include the body field
-            expect(@grabber.url()).toBe("http://api.stackexchange.com/2.0/users/126042/answers?sort=activity&site=stackoverflow&filter=!*LJ9JtBkumiy6i6I")
+        describe "#fetch", ->
+            beforeEach ->
+                @grabber.fetch()
+
+            it "fetches from the correct url", ->
+                ajaxArg = $.ajax.mostRecentCall.args[0]
+                expect(ajaxArg.url).toBe("http://api.stackexchange.com/2.0/users/126042/answers")
+                expect(ajaxArg.data.sort).toBe("activity")
+                expect(ajaxArg.data.site).toBe("stackoverflow")
+                expect(ajaxArg.data.filter).toBe("!*LJ9JtBkumiy6i6I")
+
+            xdescribe "when the fetch completes"
