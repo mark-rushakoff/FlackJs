@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'rake'
 gem 'stasis'
 gem 'haml'
 gem 'coffee-script'
