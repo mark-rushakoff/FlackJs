@@ -13,8 +13,28 @@ entryTypes = {
         filter: "!7(OigrJ9",
         sort: "creation",
         targetProp: "commentText"
+    },
+    questions: {
+        filter: "!0U1).AVuHTt(si6OTWa*fomjU",
+        sort: "activity",
+        targetProp: "questionText"
     }
 }
+
+fetchTemplate = (self, type) ->
+    map = entryTypes[type]
+    $.ajax({
+        url: "http://api.stackexchange.com/2.0/users/#{self.id}/#{type}",
+        dataType: "jsonp",
+        data: {
+            sort: map.sort,
+            site: self.site,
+            order: "desc",
+            filter: map.filter
+        },
+        success: (data) =>
+            self[map.targetProp] = stripHtml(_.pluck(data.items, "body").join(' '))
+    })
 
 class Grabber
     constructor: (@id) ->
@@ -22,25 +42,13 @@ class Grabber
         @sort = "activity"
 
     fetchAnswers: () ->
-        this._fetchTemplate("answers")
+        fetchTemplate(this, "answers")
 
     fetchComments: () ->
-        this._fetchTemplate("comments")
+        fetchTemplate(this, "comments")
 
-    _fetchTemplate: (type) ->
-        map = entryTypes[type]
-        $.ajax({
-            url: "http://api.stackexchange.com/2.0/users/#{@id}/#{type}",
-            dataType: "jsonp",
-            data: {
-                sort: map.sort,
-                site: @site,
-                order: "desc",
-                filter: map.filter
-            },
-            success: (data) =>
-                this[map.targetProp] = stripHtml(_.pluck(data.items, "body").join(' '))
-        })
+    fetchQuestions: () ->
+        fetchTemplate(this, "questions")
 
 root.FlackOverstow = {
     Grabber

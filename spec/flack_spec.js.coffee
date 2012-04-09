@@ -53,3 +53,23 @@ describe "FlackOverstow", ->
 
                 it "sets the commentText property", ->
                     expect(@grabber.commentText).toBeDefined()
+
+        describe "#fetchQuestions", ->
+            beforeEach ->
+                @grabber.fetchQuestions()
+
+            it "fetches from the correct url", ->
+                ajaxArg = $.ajax.mostRecentCall.args[0]
+                expect(ajaxArg.url).toBe("http://api.stackexchange.com/2.0/users/126042/questions")
+                expect(ajaxArg.data.sort).toBe("activity")
+                expect(ajaxArg.data.order).toBe("desc")
+                expect(ajaxArg.data.site).toBe("stackoverflow")
+                expect(ajaxArg.data.filter).toBe("!0U1).AVuHTt(si6OTWa*fomjU")
+
+            describe "when the fetch completes", ->
+                beforeEach ->
+                    ajaxArgs = $.ajax.mostRecentCall.args[0]
+                    ajaxArgs.success(FlackFixtures.questions)
+
+                it "sets the commentText property", ->
+                    expect(@grabber.questionText).toBeDefined()
