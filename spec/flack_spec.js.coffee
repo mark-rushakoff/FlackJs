@@ -14,17 +14,15 @@ describe "FlackOverstow", ->
         it "defaults the site to stackoverflow", ->
             expect(@grabber.site).toBe("stackoverflow")
 
-        it "defaults the sort to activity", ->
-            expect(@grabber.sort).toBe("activity")
-
-        describe "#fetch", ->
+        describe "#fetchAnswers", ->
             beforeEach ->
-                @grabber.fetch()
+                @grabber.fetchAnswers()
 
             it "fetches from the correct url", ->
                 ajaxArg = $.ajax.mostRecentCall.args[0]
                 expect(ajaxArg.url).toBe("http://api.stackexchange.com/2.0/users/126042/answers")
                 expect(ajaxArg.data.sort).toBe("activity")
+                expect(ajaxArg.data.order).toBe("desc")
                 expect(ajaxArg.data.site).toBe("stackoverflow")
                 expect(ajaxArg.data.filter).toBe("!*LJ9JtBkumiy6i6I")
 
@@ -35,3 +33,23 @@ describe "FlackOverstow", ->
 
                 it "sets the answerText property", ->
                     expect(@grabber.answerText).toBeDefined()
+
+        describe "#fetchComments", ->
+            beforeEach ->
+                @grabber.fetchComments()
+
+            it "fetches from the correct url", ->
+                ajaxArg = $.ajax.mostRecentCall.args[0]
+                expect(ajaxArg.url).toBe("http://api.stackexchange.com/2.0/users/126042/comments")
+                expect(ajaxArg.data.sort).toBe("creation")
+                expect(ajaxArg.data.order).toBe("desc")
+                expect(ajaxArg.data.site).toBe("stackoverflow")
+                expect(ajaxArg.data.filter).toBe("!7(OigrJ9")
+
+            describe "when the fetch completes", ->
+                beforeEach ->
+                    ajaxArgs = $.ajax.mostRecentCall.args[0]
+                    ajaxArgs.success(FlackFixtures.comments)
+
+                it "sets the commentText property", ->
+                    expect(@grabber.commentText).toBeDefined()

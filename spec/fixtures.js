@@ -94,3 +94,99 @@ FlackFixtures.answers = {
     }
     ]
 }
+
+FlackFixtures.comments = 
+{
+    "items": [
+    {
+        "body": "You might try cloning that repository.  Cloning should only take the &quot;necessary&quot; objects into a new repo, so as long as that loose object is really &quot;unnecessary&quot; for your clone, you might have a corruption-free repo in your clone."
+    },
+    {
+        "body": "BTW, <code>$(this.el).toggleClass(&quot;selected&quot;)</code>. Or even shorter to <code>this.model.selected = $(this.el).toggleClass(&#39;selected&quot;).hasClass(&quot;selected&quot;);</code>."
+    },
+    {
+        "body": "You could possibly get by with a <a href=\"http://wiki.python.org/moin/PythonDecorators\" rel=\"nofollow\">decorator</a>..."
+    },
+    {
+        "body": "Check out <a href=\"http://jurassic.codeplex.com/\" rel=\"nofollow\">Jurassic</a> too."
+    },
+    {
+        "body": "It doesn&#39;t answer the question, but if your binaries are for Windows or Linux you can use <a href=\"http://upx.sourceforge.net/\" rel=\"nofollow\">UPX</a> to reduce the size."
+    },
+    {
+        "body": "You probably don&#39;t want to switch from Bugzilla, but FWIW Redmine supports this setup, where it will scan your repository and mark issues as closed or fixed.  It will even support syntax like <code>References #123</code> and then include that commit in the details for issue #123."
+    },
+    {
+        "body": "@dagda1: A tag can be thought of similar to an &quot;extra note&quot; on a commit.  You use a tag when you want to know exactly which commit corresponds to something particular -- in this case, the commit that was used to build version 1.0.0 of the software.  On the other hand, a branch is just a named pointer to commits, that can move as you make more commits.  So tags are important <i>after</i> development, branches are important <i>during</i> development."
+    },
+    {
+        "body": "@Constantin: That&#39;s right.  The OP seemed to edit the question to include a diagram requirement, well after I answered here."
+    },
+    {
+        "body": "Try the import twice.  I&#39;ve come across a couple libraries that don&#39;t initialize correctly for some reason, and a second, identical import worked okay even though the first raised an exception."
+    },
+    {
+        "body": "Needs a language tag if you want any relevant answers."
+    },
+    {
+        "body": "@Uwe: That&#39;s weird, it&#39;s up for me now and when I posted the answer.  <a href=\"http://www.downforeveryoneorjustme.com/wyday.com\" rel=\"nofollow\">downforeveryoneorjustme.com/wyday.com</a> agrees with me."
+    },
+    {
+        "body": "Tagging as <a href=\"http://www.cdf.utoronto.ca/~csc148h/winter/assignments/a3/trie.py\" rel=\"nofollow\">homework</a>."
+    },
+    {
+        "body": "What&#39;s wrong with <code>if (n == 0) { return x; }</code> ?"
+    },
+    {
+        "body": "<a href=\"http://www.google.com/images?q=planet+scale\" rel=\"nofollow\">Most depictions of planets to scale</a> use several views, where each view has the largest planet of the previous view and the smallest planet in the current.  Not sure if that helps or not."
+    },
+    {
+        "body": "Why wouldn&#39;t you just have two separate functions, one accepting a name and the other accepting a type?  This approach seems like it would only confuse consumers of the API."
+    },
+    {
+        "body": "Why use your own LINQ implementation when you could use the existing <a href=\"http://code.google.com/p/linqbridge/\" rel=\"nofollow\">linqbridge</a>?"
+    },
+    {
+        "body": "possible duplicate of <a href=\"http://stackoverflow.com/questions/1501921/go-to-matching-brace-in-visual-studio\">Go to Matching Brace in Visual Studio?</a>"
+    },
+    {
+        "body": "@Ivan: Since it&#39;s running in debug mode, you probably have some room to tweak settings as necessary.  Start out with a value like 250k, and if your application is too database-intensive to fit its log in there, increase the size as necessary."
+    },
+    {
+        "body": "<a href=\"http://stackoverflow.com/questions/3529917/nunit-secondary-thread-exception\">This question</a> suggests it is possible to set up an <code>UnhandledExceptionHandler</code> with NUnit; are you sure it is being set up in the <code>LogClient</code> constructor?  Try setting up the handler explicitly in the test."
+    },
+    {
+        "body": "To me, this kind of sounds like a variation of Sudoku (in that you need to &quot;fill in the blanks&quot; according to some set of rules).  Looking up Sudoku solvers just might give you a kick-start if the posted answers haven&#39;t yet."
+    },
+    {
+        "body": "What is it you&#39;re trying to do that you need the changes listed in the commit message?  You might just have a misunderstanding with a particular tool, and we might be able to help you work around the actual problem."
+    },
+    {
+        "body": "Obligatory: <a href=\"http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/\" title=\"regex match open tags except xhtml self contained tags\">stackoverflow.com/questions/1732348/&hellip;</a>"
+    },
+    {
+        "body": "@Tobias: Another option would be to apply e.g. the <a href=\"http://nunit.org/index.php?p=explicit&amp;r=2.5.9\" rel=\"nofollow\"><code>Explicit</code> attribute</a> to the test so that it isn&#39;t run with Hudson, but you can still run it manually.  But at this point I&#39;d really start leaning towards mocking out the clipboard."
+    },
+    {
+        "body": "@John: I haven&#39;t looked at AV Bible in any depth yet.  The <a href=\"http://www.avbible.net/pageSDK/pageSDK.html\" rel=\"nofollow\">SDK page</a> offers example C++ and C# code; I suspect that they only offer the actual binary file, so most likely you either drop in their example C# code if you&#39;re using a .NET server, or you generally copy the C# class(es) to a PHP or Ruby (or whatever) class.  In either case, the binary file should be sufficient (and if you wanted a different translation, that format should be an excellent starting point)."
+    },
+    {
+        "body": "See also my accepted answer here: <a href=\"http://stackoverflow.com/questions/3019508/c-string-formatting/3019525#3019525\" title=\"c string formatting\">stackoverflow.com/questions/3019508/c-string-formatting/&hellip;</a>"
+    },
+    {
+        "body": "You can&#39;t rely on it in PHP: <a href=\"http://stackoverflow.com/questions/1921422/php-nested-conditional-operator-bug\" title=\"php nested conditional operator bug\">stackoverflow.com/questions/1921422/&hellip;</a>"
+    },
+    {
+        "body": "@user: It&#39;s not necessarily a matter of time so much as a matter of compatibility, both forwards and backwards."
+    },
+    {
+        "body": "@Zardoz: If what you are attempting to achieve a uniform distribution of all letters and numbers in all 10 positions, then your approach is inherently flawed.  If you just want something &quot;kind of&quot; random, keep up this approach.  A better approach toward uniformity would be to generate each character on its own as you suggest."
+    },
+    {
+        "body": "Possibly relevant: <a href=\"http://stackoverflow.com/questions/118984/how-can-you-program-if-youre-blind\">How can you program if you&#39;re blind?</a>, <a href=\"http://stackoverflow.com/questions/430682/best-languages-to-teach-a-blind-adult-the-basics-of-programming\">Best languages to teach a blind adult the basics of programming</a>."
+    },
+    {
+        "body": "Unless pi has become exactly 1. :X"
+    }
+    ]
+}
